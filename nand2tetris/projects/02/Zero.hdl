@@ -1,0 +1,12 @@
+CHIP Zero {
+	IN in[16], z;
+	OUT out[16];
+	
+	PARTS:
+	Not16(in=in, out=notin);
+	And16(a=in, b=notin, out=zeros);
+	Or16(a=in, b=notin, out=ones);
+	
+	Mux2Way16(a=ones, b=zeros, sel=z, out=xsels);
+	And16(a=in, b=xsels, out=out);
+}

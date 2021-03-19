@@ -1,0 +1,9 @@
+CHIP AddorAnd{
+	IN x[16], y[16], f;
+	OUT out[16];
+	
+	PARTS:
+	And16(a=x, b=y, out=andf);
+	Add16(a=x, b=y, out=addf);
+	Mux2Way16(a=andf, b=addf, sel=f, out=out);
+}

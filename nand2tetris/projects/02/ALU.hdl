@@ -42,5 +42,15 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
-   // Put you code here:
+		Zero(in=x, z=zx, out=x1);
+		Zero(in=y, z=zy, out=y1);
+		Negate(in=x1, n=nx, out=x2);
+		Negate(in=y1, n=ny, out=y2);
+		AddorAnd(x=x2, y=y2, f=f, out=t1);
+		Negate(in=t1, n=no, out=out);
+		Negate(in=t1, n=no, out=t2);
+		
+		Or16Way(in=t2, out=t3);
+		Not(in=t3, out=zr);
+		Tmp(a=t2, b=t2, out=ng);
 }

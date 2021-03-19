@@ -1,0 +1,7 @@
+CHIP Tmp {
+	IN a[16], b[16];
+	OUT out;
+	
+	PARTS:
+	And(a=a[15], b=b[15], out=out);
+}
