@@ -1,0 +1,11 @@
+CHIP Mux8 {
+    IN a, b, c, d,
+       e, f, g, h,
+       sel[3];
+    OUT out;
+
+    PARTS:
+    Mux4(a=a, b=b, c=c, d=d, sel[1]=sel[1], sel[0]=sel[0], out=t1);
+	Mux4(a=e, b=f, c=g, d=h, sel[1]=sel[1], sel[0]=sel[0], out=t2);
+	Mux(a=t1, b=t2, sel=sel[2], out=out);
+}
